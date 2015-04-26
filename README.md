@@ -1,0 +1,2 @@
+# dotfiles
+hidden configuration files
