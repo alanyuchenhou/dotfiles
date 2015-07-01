@@ -2,6 +2,7 @@
 (require 'flymake)
 (setq backup-inhibited t)
 (show-paren-mode t)
+(setq show-trailing-whitespace t)
 (electric-pair-mode t)
 (define-key global-map (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "C-c s") 'cscope-find-this-symbol)
