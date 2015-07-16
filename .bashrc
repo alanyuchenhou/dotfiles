@@ -28,7 +28,7 @@ shopt -s checkwinsize
 #shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
-#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -79,15 +79,19 @@ if [ -x /usr/bin/dircolors ]; then
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
-    #alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
 fi
 
 # some more ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
-#alias l='ls -CF'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -110,24 +114,19 @@ if ! shopt -oq posix; then
 fi
 
 # Yuchen's customizations
-alias ll='ls -l -h --time-style long-iso'
-alias emacs='emacs -nw'
-function cc() {
-    cd "$1"
-    ll
-}
-PATH="$PATH:."
-color_off='\e[0m'       # text reset
-black='\e[0;30m'        # black
-red='\e[0;31m'          # red
-green='\e[0;32m'        # green
-yellow='\e[0;33m'       # yellow
-blue='\e[0;34m'         # blue
-purple='\e[0;35m'       # purple
-cyan='\e[0;36m'         # cyan
-white='\e[0;37m'        # white
-export PS1="\[${green}\]\h:\[${color_off}\]\[${blue}\]\w\[${color_off}\]\$ "
 export TERM=xterm-256color
+# alias emacs='emacs -nw'
+# alias ll='ls -l -h --time-style long-iso'
+# color_off='\e[0m'       # text reset
+# black='\e[0;30m'        # black
+# red='\e[0;31m'          # red
+# green='\e[0;32m'        # green
+# yellow='\e[0;33m'       # yellow
+# blue='\e[0;34m'         # blue
+# purple='\e[0;35m'       # purple
+# cyan='\e[0;36m'         # cyan
+# white='\e[0;37m'        # white
 # export GDFONTPATH=/usr/share/fonts/liberation
 # export GNUPLOT_DEFAULT_GDFONT=LiberationSans-Regular
 # export OMP_NUM_THREADS=8
+# export PS1="\[${green}\]\h:\[${color_off}\]\[${blue}\]\w\[${color_off}\]\$ "
