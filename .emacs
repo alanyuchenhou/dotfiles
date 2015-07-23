@@ -3,6 +3,7 @@
 (setq backup-inhibited t)
 (show-paren-mode t)
 (electric-pair-mode t)
+(global-hl-line-mode t)
 (require 'dired-x)
 (setq-default dired-omit-files-p t)
 (setq dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
